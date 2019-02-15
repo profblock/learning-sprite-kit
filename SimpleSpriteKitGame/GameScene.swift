@@ -57,6 +57,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         physicsWorld.contactDelegate = self
         
         
+        
         run(SKAction.repeatForever(
             SKAction.sequence([
                 SKAction.run(addMonster),
@@ -171,11 +172,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
     }
     
+    
+
     func didBegin(_ contact: SKPhysicsContact) {
         
         // 1
         var firstBody: SKPhysicsBody
         var secondBody: SKPhysicsBody
+        
         if contact.bodyA.categoryBitMask < contact.bodyB.categoryBitMask {
             firstBody = contact.bodyA
             secondBody = contact.bodyB
